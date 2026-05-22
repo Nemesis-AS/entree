@@ -38,7 +38,23 @@ const initBlur  = ap.glassBlur  ?? 28;
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>{config.hostname} · Home</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.png" />
+  <title>{config.title ?? config.hostname} · Entree</title>
+
+  <!-- Primary -->
+  <meta name="description" content={`Home dashboard for ${config.hostname}`} />
+  <meta name="application-name" content="Entree" />
+  <meta name="robots" content="noindex, nofollow" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content={`${config.title ?? config.hostname} · Entree`} />
+  <meta property="og:description" content={`Home dashboard for ${config.hostname}`} />
+  <meta property="og:image" content="/favicon.svg" />
+
+  <!-- Theme -->
+  <meta name="color-scheme" content={initTheme === 'light' ? 'light dark' : 'dark light'} />
+  <meta name="theme-color" content="#0f172a" />
 </head>
 <body data-theme={initTheme} data-bg={initBg}>
   <App config={config} client:only="react" />

@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 350 390" width="350" height="390">
+  <defs>
+    <!-- Front face fill: subtle aurora bleed -->
+    <linearGradient id="frontFill" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%"   stop-color="#e8fff2"/>
+      <stop offset="35%"  stop-color="#ddeeff"/>
+      <stop offset="70%"  stop-color="#ccccff"/>
+      <stop offset="100%" stop-color="#c0aaea"/>
+    </linearGradient>
+
+    <!-- Aurora columns — left strip -->
+    <linearGradient id="aurora1" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%"   stop-color="#00ff88"/>
+      <stop offset="40%"  stop-color="#00eebb"/>
+      <stop offset="80%"  stop-color="#0044ee"/>
+      <stop offset="100%" stop-color="#5500dd"/>
+    </linearGradient>
+    <!-- Aurora columns — mid strip -->
+    <linearGradient id="aurora2" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%"   stop-color="#00ffcc"/>
+      <stop offset="35%"  stop-color="#0088ff"/>
+      <stop offset="70%"  stop-color="#9922ff"/>
+      <stop offset="100%" stop-color="#ff33bb"/>
+    </linearGradient>
+    <!-- Aurora columns — right strip -->
+    <linearGradient id="aurora3" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%"   stop-color="#44ffdd"/>
+      <stop offset="40%"  stop-color="#2266ff"/>
+      <stop offset="75%"  stop-color="#cc33ff"/>
+      <stop offset="100%" stop-color="#ff2277"/>
+    </linearGradient>
+
+    <!-- Top face -->
+    <linearGradient id="topGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"   stop-color="#55ffaa"/>
+      <stop offset="100%" stop-color="#22eeff"/>
+    </linearGradient>
+
+    <!-- Reflection bars — horizontal rainbow fade -->
+    <linearGradient id="reflHoriz" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"   stop-color="#110055" stop-opacity="0"/>
+      <stop offset="20%"  stop-color="#3311aa"/>
+      <stop offset="45%"  stop-color="#6622cc"/>
+      <stop offset="55%"  stop-color="#ee44bb"/>
+      <stop offset="78%"  stop-color="#3311aa"/>
+      <stop offset="100%" stop-color="#110055" stop-opacity="0"/>
+    </linearGradient>
+
+    <!-- Clip to side face polygon -->
+    <clipPath id="sideClip">
+      <polygon points="202,36 294,64 294,284 202,284"/>
+    </clipPath>
+  </defs>
+
+  <!-- ── TOP FACE ── -->
+  <polygon points="88,36 202,36 294,64 202,64"
+           fill="url(#topGrad)" opacity="0.85"/>
+
+  <!-- ── SIDE FACE (aurora gradient, 3 vertical strips) ── -->
+  <g clip-path="url(#sideClip)">
+    <rect x="202" y="36" width="31" height="248" fill="url(#aurora1)"/>
+    <rect x="233" y="36" width="31" height="248" fill="url(#aurora2)"/>
+    <rect x="264" y="36" width="30" height="248" fill="url(#aurora3)"/>
+    <!-- Bright specular streaks -->
+    <rect x="218" y="36" width="7"  height="248" fill="white" opacity="0.14"/>
+    <rect x="252" y="36" width="5"  height="248" fill="white" opacity="0.10"/>
+    <rect x="280" y="36" width="4"  height="248" fill="white" opacity="0.07"/>
+  </g>
+  <!-- Side face border -->
+  <polygon points="202,36 294,64 294,284 202,284"
+           fill="none" stroke="#00aaff" stroke-width="1.5"/>
+
+  <!-- ── FRONT FACE ── -->
+  <rect x="88" y="36" width="114" height="248" fill="url(#frontFill)"/>
+
+  <!-- Subtle inner aurora streaks on front face -->
+  <line x1="124" y1="36"  x2="116" y2="284" stroke="#00ccff" stroke-width="2" opacity="0.20"/>
+  <line x1="152" y1="36"  x2="144" y2="284" stroke="#9999ff" stroke-width="2" opacity="0.15"/>
+  <line x1="178" y1="36"  x2="170" y2="284" stroke="#ff88cc" stroke-width="1.5" opacity="0.10"/>
+
+  <!-- Neon green outline -->
+  <rect x="88" y="36" width="114" height="248"
+        fill="none" stroke="#00ff55" stroke-width="4.5" stroke-linejoin="round"/>
+
+  <!-- ── DRIVE BAY SLOTS (3 green bars) ── -->
+  <rect x="104" y="112" width="82" height="21" rx="4" fill="#00ee55"/>
+  <rect x="104" y="146" width="82" height="21" rx="4" fill="#00ee55"/>
+  <rect x="104" y="180" width="82" height="21" rx="4" fill="#00ee55"/>
+
+  <!-- ── SIDE INDICATOR DOTS (3 cyan) ── -->
+  <circle cx="256" cy="152" r="8.5" fill="#00ddff" stroke="#aaffff" stroke-width="1.5"/>
+  <circle cx="256" cy="178" r="8.5" fill="#00ddff" stroke="#aaffff" stroke-width="1.5"/>
+  <circle cx="256" cy="204" r="8.5" fill="#00ddff" stroke="#aaffff" stroke-width="1.5"/>
+
+  <!-- ── FLOOR REFLECTION (widening bands) ── -->
+  <rect x="72"  y="292" width="222" height="9"  rx="3" fill="url(#reflHoriz)" opacity="1.00"/>
+  <rect x="50"  y="305" width="265" height="7"  rx="3" fill="url(#reflHoriz)" opacity="0.72"/>
+  <rect x="22"  y="316" width="320" height="6"  rx="3" fill="url(#reflHoriz)" opacity="0.48"/>
+  <rect x="2"   y="325" width="350" height="5"  rx="3" fill="url(#reflHoriz)" opacity="0.28"/>
+  <rect x="-12" y="333" width="378" height="4"  rx="3" fill="url(#reflHoriz)" opacity="0.12"/>
+</svg>
