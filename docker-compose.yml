@@ -1,0 +1,11 @@
+services:
+  homepage:
+    build: .
+    container_name: entree
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./config:/config:ro
+    environment:
+      - CONFIG_DIR=/config
+    restart: unless-stopped

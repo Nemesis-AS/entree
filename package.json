@@ -1,0 +1,28 @@
+{
+  "name": "entree",
+  "author": {
+    "name": "Akshat Shukla",
+    "url": "https://nemesisas.dev/"
+  },
+  "type": "module",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "@astrojs/react": "^5.0.5",
+    "astro": "^6.3.7",
+    "js-yaml": "^4.1.0",
+    "lucide-react": "^1.16.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "systeminformation": "^5.31.6"
+  },
+  "devDependencies": {
+    "@astrojs/node": "^10.1.1",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0"
+  }
+}

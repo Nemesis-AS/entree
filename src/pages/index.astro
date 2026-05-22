@@ -1,0 +1,46 @@
+---
+import { readFileSync } from 'node:fs';
+import { join, resolve } from 'node:path';
+import yaml from 'js-yaml';
+import App from '../components/App.jsx';
+import '../styles/global.css';
+import { getUptimeCache, ensurePolling } from '../lib/uptime-store.js';
+
+ensurePolling();
+
+const configDir = process.env.CONFIG_DIR ?? resolve('./config');
+
+let config;
+try {
+  const services = yaml.load(readFileSync(join(configDir, 'services.yaml'), 'utf-8'));
+  const settings = yaml.load(readFileSync(join(configDir, 'settings.yaml'), 'utf-8'));
+  config = { ...settings, ...services, uptime: getUptimeCache() };
+} catch (err) {
+  console.error('[homepage] Failed to read config:', err.message);
+  config = {
+    hostname: 'homepage',
+    user: 'user',
+    sections: [],
+    bookmarks: [],
+    metrics: {},
+    system: {},
+    appearance: {},
+  };
+}
+
+const ap = config.appearance ?? {};
+const initTheme = ap.theme      ?? 'dark';
+const initBg    = ap.background ?? 'aurora';
+const initBlur  = ap.glassBlur  ?? 28;
+---
+<!doctype html>
+<html lang="en" style={`--glass-blur: ${initBlur}px`}>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{config.hostname} · Home</title>
+</head>
+<body data-theme={initTheme} data-bg={initBg}>
+  <App config={config} client:only="react" />
+</body>
+</html>
