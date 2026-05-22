@@ -1,5 +1,5 @@
 services:
-  homepage:
+  entree:
     build: .
     container_name: entree
     ports:
