@@ -3,7 +3,8 @@ WORKDIR /app
 
 RUN corepack enable && corepack prepare pnpm@latest --activate
 
-COPY package.json pnpm-lock.yaml* pnpm-workspace.yaml public/ ./
+COPY package.json pnpm-lock.yaml* pnpm-workspace.yaml ./
+COPY public ./public
 RUN pnpm install --frozen-lockfile
 
 COPY astro.config.mjs ./
